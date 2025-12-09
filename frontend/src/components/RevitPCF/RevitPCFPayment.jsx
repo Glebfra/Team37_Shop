@@ -16,8 +16,8 @@ const PaymentCard = () => {
 
     const [cardData, setCardData] = useState({
         cardNumber: '',
-        cardExpirationDay: '',
         cardExpirationMonth: '',
+        cardExpirationYear: '',
         cardSecurityCode: '',
         cardHolderName: ''
     });
@@ -25,20 +25,20 @@ const PaymentCard = () => {
     const handleCardNumberChange = (e) => {
         const getMaskedValue = (value) => Array.from(value.replaceAll(/\D/g, '').matchAll(/(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})/g))[0].slice(1, 5).join(' ').trim();
         e.target.value = getMaskedValue(e.target.value);
-        setCardData({ ...cardData, [e.target.name]: e.target.value });
-    }
+        setCardData({...cardData, [e.target.name]: e.target.value});
+    };
 
     const handleChangeUserData = (e) => {
-        setUserData({ ...userData, [e.target.name]: e.target.value })
+        setUserData({...userData, [e.target.name]: e.target.value});
     };
 
     const handleChangeCardData = (e) => {
-        setCardData({ ...cardData, [e.target.name]: e.target.value });
+        setCardData({...cardData, [e.target.name]: e.target.value});
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Payment submitted: ', form);
+        console.log('Payment submitted: ', e.target.value);
         alert('Payment processed!');
     };
 
@@ -58,7 +58,8 @@ const PaymentCard = () => {
                             placeholder=''
                             className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                         />
-                        <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                        <label
+                            className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                             First Name *
                         </label>
                     </div>
@@ -73,7 +74,8 @@ const PaymentCard = () => {
                             placeholder=''
                             className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                         />
-                        <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                        <label
+                            className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                             Second Name *
                         </label>
                     </div>
@@ -89,7 +91,8 @@ const PaymentCard = () => {
                         placeholder=''
                         className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                     />
-                    <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                    <label
+                        className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                         Email *
                     </label>
                 </div>
@@ -104,7 +107,8 @@ const PaymentCard = () => {
                         placeholder=''
                         className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                     />
-                    <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                    <label
+                        className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                         Full Address *
                     </label>
                 </div>
@@ -120,7 +124,8 @@ const PaymentCard = () => {
                             placeholder=''
                             className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                         />
-                        <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                        <label
+                            className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                             City *
                         </label>
                     </div>
@@ -135,7 +140,8 @@ const PaymentCard = () => {
                             placeholder=''
                             className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                         />
-                        <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                        <label
+                            className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                             ZIP
                         </label>
                     </div>
@@ -154,7 +160,8 @@ const PaymentCard = () => {
                         maxLength={19}
                         className='peer w-full border-b-2 border-gray-300 focus:border-blue-600 outline-none py-2 pt-5 bg-transparent transition-all duration-300'
                     />
-                    <label className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
+                    <label
+                        className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
                         Card Number *
                     </label>
                 </div>
@@ -164,7 +171,7 @@ const PaymentCard = () => {
                             <input
                                 type='month'
                                 name='cardExpirationDay'
-                                value={cardData.cardExpirationDay}
+                                value={cardData.cardExpirationMonth}
                                 onChange={handleChangeCardData}
                                 maxLength={2}
                                 max={12}
@@ -173,14 +180,14 @@ const PaymentCard = () => {
                             />
                             <label
                                 className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
-                                DD *
+                                MM *
                             </label>
                         </div>
                         <div className='relative'>
                             <input
                                 type='text'
                                 name='cardExpirationMonth'
-                                value={cardData.cardExpirationMonth}
+                                value={cardData.cardExpirationYear}
                                 onChange={handleChangeCardData}
                                 maxLength={2}
                                 placeholder=''
@@ -188,7 +195,7 @@ const PaymentCard = () => {
                             />
                             <label
                                 className='absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-sm'>
-                                MM *
+                                YY *
                             </label>
                         </div>
                     </div>
