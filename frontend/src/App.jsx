@@ -3,6 +3,7 @@ import RevitPCFFeatures from './components/RevitPCF/RevitPCFFeatures';
 import RevitPCFHero from './components/RevitPCF/RevitPCFHero'
 import RevitPCFPricings from './components/RevitPCF/RevitPCFPricings';
 import Contact from './components/Contact';
+import RevitPCFPayment from "./components/RevitPCF/RevitPCFPayment.jsx";
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
             <RevitPCFHero/>
             <RevitPCFFeatures/>
             <RevitPCFPricings/>
+            <RevitPCFPayment/>
             <Contact/>
         </div>
     );
