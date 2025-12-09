@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContainerLayout from '../../layouts/ContainterLayout';
-import { ChevronRight } from 'lucide-react';
+import {ChevronRight} from 'lucide-react';
 
 const PricingCard = ({title, price, payment, features}) => {
     return (
-        <div className='w-lg bg-white rounded-xl mb-15 p-6 shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300'>
+        <div
+            className='w-lg bg-white rounded-xl mb-15 p-6 shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300'>
             <div className='mb-4'>
                 <h3 className='font-bold text-2xl py-2'>{title}</h3>
                 <p className='font-bold text-4xl py-2 text-blue-400'>{price}</p>
@@ -13,8 +14,9 @@ const PricingCard = ({title, price, payment, features}) => {
             <div className='my-15'>
                 <ul className='text-gray-800 text-left list-disc list-inside'>
                     {features.map((feature, index) => (
-                        <li key={index} className='my-2 py-1 list-none flex flex-row items-center border-b border-gray-200'>
-                            <ChevronRight size={24} className='text-blue-400' />
+                        <li key={index}
+                            className='my-2 py-1 list-none flex flex-row items-center border-b border-gray-200'>
+                            <ChevronRight size={24} className='text-blue-400'/>
                             <p>{feature}</p>
                         </li>
                     ))}
@@ -27,7 +29,12 @@ const PricingCard = ({title, price, payment, features}) => {
 
 const RevitPCFPricings = () => {
     const pricing_plans = [
-        { title: 'Professional Plan', price: '$99', payment: 'one-time payment', features: ['PCF file generation', 'Full Revit integration', 'Process automation', 'Collaboration tools', 'Lifetime updates', 'Priority email support'] }
+        {
+            title: 'Professional Plan',
+            price: '$99',
+            payment: 'one-time payment',
+            features: ['PCF file generation', 'Full Revit integration', 'Process automation', 'Collaboration tools', 'Lifetime updates', 'Priority email support']
+        }
     ];
 
     return (
@@ -41,11 +48,11 @@ const RevitPCFPricings = () => {
                     <div className='grid justify-center items-center gap-5 mb-10'>
                         {pricing_plans.map(plan => (
                             <PricingCard
-                            title={plan.title}
-                            price={plan.price}
-                            payment={plan.payment}
-                            features={plan.features}
-                            key={plan.title}
+                                title={plan.title}
+                                price={plan.price}
+                                payment={plan.payment}
+                                features={plan.features}
+                                key={plan.title}
                             />
                         ))}
                     </div>

@@ -1,0 +1,46 @@
+services:
+  db:
+    image: ${DATABASE_TYPE}:latest
+    container_name: db
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}" ]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - ./.data:/var/lib/postgresql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    container_name: api
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 8001:8001
+    environment:
+      DJANGO_DATABASE: ${DATABASE_TYPE}://${DATABASE_USER}:${DATABASE_PASSWORD}@db:${DATABASE_PORT}/${DATABASE_NAME}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+    volumes:
+      - ./backend/team37_api:/app
+    command: "python3 manage.py runserver 0.0.0.0:8001"
