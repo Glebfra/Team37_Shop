@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContainerLayout from '../../layouts/ContainterLayout';
 
 const RevitPCFHero = () => {
@@ -14,7 +14,8 @@ const RevitPCFHero = () => {
                     <div className='flex flex-col items-center justify-center pt-10'>
                         <h1 className='text-2xl md:text-4xl font-bold text-center pt-20'>{data.title}</h1>
                         <p className='text-lg md:text-xl fond-bold text-center py-10 mx-30'>{data.description}</p>
-                        <a className='bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-all duration-300' href='#payment'>
+                        <a className='bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-all duration-300'
+                           href='#payment'>
                             Purchase Now
                         </a>
                     </div>
