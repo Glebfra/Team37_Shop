@@ -11,5 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 FROM build AS prod
+EXPOSE 8000
 EXPOSE 8001
 CMD ["gunicorn", "team37_api.wsgi"]
