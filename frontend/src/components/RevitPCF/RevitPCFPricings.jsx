@@ -45,7 +45,7 @@ const RevitPCFPricings = () => {
                         <h2 className='text-4xl font-bold py-10 text-cyan-900'>Simple Pricing</h2>
                         <p className='text-md pb-10 text-gray-600/75'>One powerful plan for all your needs</p>
                     </div>
-                    <div className='grid justify-center items-center gap-5 mb-10'>
+                    <div className='grid justify-center items-center gap-5'>
                         {pricing_plans.map(plan => (
                             <PricingCard
                                 title={plan.title}
